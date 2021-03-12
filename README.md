@@ -35,3 +35,4 @@ For this assignment, you must build a basic application using React and Redux th
   * Make sure to write code that you would be comfortable contributing in a professional setting.  Cleanliness and maintainability are just as important as making sure that it actually works.
   * In total, this assignment shouldn't take more than an hour or two to complete.  It's just a quick way to get a better feel for where you are at, so don't spend your entire day on it.
   * If you get stuck, feel free to leave comments in the code explaining how you would go about completing that part instead.
+"# haloProject" 
