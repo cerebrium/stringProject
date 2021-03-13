@@ -11,6 +11,9 @@ const App = (props) => {
     const [ inputText, setInputText ] = useState('')
     const [ wishlistArray, setWishlistArray ] = useState([])
 
+    // error screen
+    const [ errorScreen, setErrorScreen ] = useState(null)    
+
     // function for handling adding 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -35,6 +38,16 @@ const App = (props) => {
                             id: uuid(),
                             message: inputText
                         })
+                    } else {
+                        // handle string already found
+                        setErrorScreen(
+                            <div className='errorScreen'>
+                                Santa already read that one, please ask for something else!
+                            </div>
+                        )
+                        setTimeout( () => {
+                            setErrorScreen(null)
+                        }, 2000)
                     }
                 // first time not needed to check    
                 } else {
@@ -43,6 +56,16 @@ const App = (props) => {
                         message: inputText
                     })
                 }
+            } else {
+                // handle nothing entered
+                setErrorScreen(
+                    <div className='errorScreen'>
+                        Santa can't read your mind, please enter a longer request!
+                    </div>
+                )
+                setTimeout( () => {
+                    setErrorScreen(null)
+                }, 2000)
             }
             setInputText('')
         }
@@ -83,9 +106,18 @@ const App = (props) => {
                     id: ele.key
                 })
             })
+            alert('Wish list submitted to Santa!')
+        } else {
+            // handle no items on list
+            setErrorScreen(
+                <div className='errorScreen'>
+                    Santa needs at least one item to be able to pack his sleigh with!
+                </div>
+            )
+            setTimeout( () => {
+                setErrorScreen(null)
+            }, 2000)
         }
-
-        alert('Wish list submitted to Santa!')
     }
 
     return(
@@ -95,6 +127,7 @@ const App = (props) => {
                 <div className='displayBox'>
                     {wishlistArray}
                 </div>
+                {errorScreen}
                 <form onSubmit={handleSubmit}>
                     <input type="text" value={inputText} onChange={handleInputChange}/>
                     <input type="submit" value="Add" className='addButton'/>

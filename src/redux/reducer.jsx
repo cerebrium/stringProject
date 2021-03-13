@@ -12,7 +12,6 @@ const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_ITEM:
       if (state.wishList.length > 0) {
-        console.log(state.wishList)
         state.wishList.push(action.payload);
       } else {
         state.wishList = [action.payload]

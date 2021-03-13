@@ -67,6 +67,7 @@ body, html {
 
     // main box
     .mainBoxContainer {
+        position: relative;
         width: 400px;
         height: 540px;
         background-color: #FCC0CB;
@@ -86,7 +87,8 @@ body, html {
             overflow-y: auto;
 
             h3 {
-                padding: 5px;
+                padding: 15px 10px 0px 15px;
+                margin: 0px;
                 font-weight: 400;
                 cursor: pointer;
             }
@@ -108,10 +110,12 @@ body, html {
                 padding-left: 10px;
             }
     
+            // add comment button
             .addButton {
                 cursor: pointer;
                 width: 100px;
                 height: 40px;
+                font-weight: 600;
                 background-color: white;
                 border: 1px solid black;
                 border-radius: .2rem;
@@ -125,9 +129,11 @@ body, html {
             }
         }
 
+        // submit button
         button {
             cursor: pointer;
             width: 300px;
+            font-weight: 600;
             height: 40px;
             background-color: white;
             border: 1px solid black;
@@ -139,6 +145,21 @@ body, html {
         }
         button:hover {
             background-color: #9ef1a0;
+        }
+
+        // error screen
+        .errorScreen {
+            position: absolute;
+            width: 300px;
+            background-color: #ebaeae;
+            height: 100px;
+            bottom: 75px;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: .5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }
