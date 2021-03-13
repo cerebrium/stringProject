@@ -11,16 +11,24 @@ const INITIAL_STATE = {
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_ITEM:
+      if (state.wishList.length > 0) {
+        console.log(state.wishList)
+        state.wishList.push(action.payload);
+      } else {
+        state.wishList = [action.payload]
+      }
       return {
-        wishList: ,
+        wishList: state.wishList,
       };
     case DELETE_ITEM:
+      let newWishList = state.wishList.filter(ele => ele.id !== action.payload.id)
+      state.wishList = newWishList
       return {
-        wishList: ,
+        wishList: state.wishList,
       };
     default:
       return {
-        wishList: ,
+        wishList: state.wishList,
       };
   }
 };
